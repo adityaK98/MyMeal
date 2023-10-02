@@ -11,7 +11,7 @@ const itemName = document.getElementById("suggestionBox")
 
 // search & get meal details
 async function getMealDetails(){
-    let meal = mealInput.value
+    let meal = mealInput.value.toLowerCase();
 
     if(meal.trim()===''){
         alert("Please enter valid meal name! e.g. Biryani")
@@ -58,7 +58,7 @@ async function getMealDetails(){
 
 // Function to get suggestions
 async function getSuggestion(){
-    let firstLetter = mealInput.value[0]
+    let firstLetter = mealInput.value[0].toLowerCase();
     
     // fetch details on the basis of first letter using GET API
     const response = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?f="+firstLetter);
@@ -78,7 +78,7 @@ async function getSuggestion(){
 
     //Get full meal name
     console.log(suggestedArray)
-    let input = mealInput.value;
+    let input = mealInput.value.toLowerCase();
     
     if(input.length){
         //filter full name from the main array
